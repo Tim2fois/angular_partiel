@@ -15,9 +15,10 @@
   </div>
   <div>
     <label for="adresse">Nouvelle adresse préféré : </label>
-    <input #userNameInput="ngModel" type="text" id="adresse" name="title" required minlength="1" [(ngModel)]="restaurant.adresse">
+    <input #userNameInput="ngModel" type="text" id="adresse" name="title" required minlength="1" required maxlength="30" [(ngModel)]="restaurant.adresse">
     <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.required" style="color: red">Le champs est requis</span>
     <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.minlength" style="color: red">Le champs est trop court</span>
+    <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.maxlength" style="color: red">Le champs est trop long</span>
   </div>
   <input type="submit">
 </form>
