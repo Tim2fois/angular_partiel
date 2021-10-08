@@ -1,0 +1,23 @@
+
+<h2>Ajouter un nouveau restaurant au plus proche de chez vous !</h2>
+
+<form #form="ngForm" (ngSubmit)="submit()">
+  <div>
+    <label for="id">Id : </label>
+    <input type="number" id="id" name="releaseYear" [(ngModel)]="restaurant.id">
+  </div>
+  <div>
+    <label for="title">Nom du super restaurant : </label>
+    <input #userNameInput="ngModel" type="text" id="title" name="title" required minlength="1" required maxlength="30" [(ngModel)]="restaurant.nom">
+    <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.required" style="color: red">Le champs est requis</span>
+    <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.minlength" style="color: red">Le champs est trop court</span>
+    <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.maxlength" style="color: red">Le champs est trop long</span>
+  </div>
+  <div>
+    <label for="adresse">Nouvelle adresse préféré : </label>
+    <input #userNameInput="ngModel" type="text" id="adresse" name="title" required minlength="1" [(ngModel)]="restaurant.adresse">
+    <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.required" style="color: red">Le champs est requis</span>
+    <span *ngIf="userNameInput.invalid && userNameInput.errors && userNameInput.errors.minlength" style="color: red">Le champs est trop court</span>
+  </div>
+  <input type="submit">
+</form>

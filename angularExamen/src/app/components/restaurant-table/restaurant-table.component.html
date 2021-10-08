@@ -1,0 +1,22 @@
+
+<h2>Liste des restaurants</h2>
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Adresse</th>
+    <th>Evaluation moyenne</th>
+  </tr>
+
+  <tr *ngFor="let restaurant of restaurants; let i = index">
+    <td>{{restaurant.nom}}</td>
+    <td>{{restaurant.adresse}}</td>
+    <td *ngFor="let evaluation of restaurant.evaluations; let j = index">
+      <span [appTableDirective]="evaluation.etoiles"> {{evaluation.etoiles}} </span>
+    </td>
+    <td><button class="favorite styled" type="button">More details</button></td>
+  </tr>
+</table>
+
+
+
+
